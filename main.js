@@ -21,7 +21,7 @@ const music = new Audio('assets/international.mp3');
 music.loop = true;
 const music_boss = new Audio('assets/Soviet_Anthem_Instrumental.ogg')
 music_boss.loop = true;
-const music_gameclear = new Audio('assets/Krasnoe-znamia.mp3')
+const music_gameclear = new Audio('assets/last.mp3')
 music_gameclear.loop = true;
 const music_gameover = new Audio('assets/gameover_music.mp3')
 music_gameover.loop = true;
@@ -42,9 +42,9 @@ const player3_imgfile = new Image();
 // ラスボス戦                                                                                                                                                                                              
 player3_imgfile.src = "assets/player-3.png";
 const story_1_1_imgfile = new Image();
-story_1_1_imgfile.src = "assets/story-1-1.png";
+story_1_1_imgfile.src = "assets/ed-1.png";
 const story_1_2_imgfile	= new Image();
-story_1_2_imgfile.src = "assets/story-1-2.png";
+story_1_2_imgfile.src = "assets/ed-2.png";
 var spawnInterval = 1500; // ミリ秒
 var lastSpawnTime = 0;
 var score = 0;
@@ -83,8 +83,9 @@ function reload(){
 }
 
 function story_1_2_fs(){
-    context.clearRect(100,400,300,100);
-    context.drawImage(story_1_2_imgfile,100,400,300,100);
+    music_gameclear.play();
+    context.clearRect(0,0,500,500);
+    context.drawImage(story_1_2_imgfile,0,0,500,500);
 }
 
 function checkCollision() {
@@ -153,8 +154,7 @@ function animate() {
 	if (endflag){
 	    music.pause();
 	    music_boss.pause();
-	    music_gameclear.play();
-	    context.drawImage(story_1_1_imgfile,100,400,300,100);
+	    context.drawImage(story_1_1_imgfile,0,0,500,500);
 	    canvas.addEventListener('click',story_1_2_fs, false);
 	} else {
 	    music.pause();
