@@ -5,7 +5,10 @@ image.src = 'assets/bullet.png';
 const player_img = new Image();
 player_img.src="assets/player.png";
 const enemy_img = new Image();
-enemy_img.src = "assets/enemy.png"
+enemy_img.src = "assets/enemy.png";
+const music = new Audio('assets/international.mp3');
+music.loop = true;
+
 var enemies = [];
 var humanElement = document.getElementById("ninzuu");
 var humanrace_num = 0;
@@ -50,6 +53,7 @@ function checkCollision() {
 }
 
 function animate(){
+    music.play();
     context.clearRect(0, 0, canvas.width, canvas.height);
     // 新規のenemy
     var currentTime = Date.now();
