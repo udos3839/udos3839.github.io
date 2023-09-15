@@ -47,6 +47,9 @@ function checkCollision() {
 	    i--;
 	    humanrace_num += 1;
 	    humanElement.innerHTML = humanrace_num;
+	} else {
+	    // zキー押してないので死を
+	    window.location.reload();
 	}
     }
   }
